@@ -221,12 +221,13 @@ function App() {
     return false;
   }, [gridSize, victoryCondition]);
 
-  // ================== جلب البيانات ==================
-  const fetchQuestion = async (letter) => {
-    try {
-      const response = await fetch(`http://localhost:3000/api/question`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+// ================== جلب البيانات ==================
+const fetchQuestion = async (letter) => {
+  try {
+    // السطر الجديد بعد التعديل:
+    const response = await fetch(`https://huroof-api.onrender.com/api/question`, { 
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ letter: letter, usedIds: usedQuestionIds })
       });
       const data = await response.json();
