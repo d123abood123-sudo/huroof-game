@@ -8,8 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json()); // مهم جداً عشان نستقبل البيانات من اللعبة
 
-const DATABASE_URL = "postgresql://neondb_owner:npg_pRfHJzu8Q0ZD@ep-billowing-resonance-am9q1qgy-pooler.c-5.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require";
-
+const DATABASE_URL = process.env.DATABASE_URL;
 const client = new Client({
   connectionString: DATABASE_URL,
   ssl: { rejectUnauthorized: false }
